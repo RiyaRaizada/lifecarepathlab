@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Immunology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>DCT</td>
+                <td>COOMB'S TEST (DIRECT)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ICT</td>
+                <td>COOMB'S TEST (INDIRECT)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>RAT</td>
+                <td>RH ANTIBODY TITRE</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>VD</td>
+                <td>V.D.R.L.</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>RAF</td>
+                <td>R.A. FACTOR (Quantitative method)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>ASOQ</td>
+                <td>ASO TITRE</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>T3</td>
+                <td>T3</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>T4</td>
+                <td>T4</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>TH</td>
+                <td>TSH</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>CA125</td>
+                <td>CA-125</td>
+                <td class="rate">750</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>CA125L</td>
+                <td>CA-125 LEVEL</td>
+                <td class="rate">750</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>BAS</td>
+                <td>BACTERIAL ANTIGEN SCREEN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>CD</td>
+                <td>COELIAC DISEASE AUTONATIBODIES</td>
+                <td class="rate">780</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>C3</td>
+                <td>COMPLEMENT C3</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>AFP</td>
+                <td>ALFA FETO PROTEIN (AFP)</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>CA19.9</td>
+                <td>CA-19.9</td>
+                <td class="rate">1250</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>HLA</td>
+                <td>HLA-B27 TYPING</td>
+                <td class="rate">2000</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>DNA</td>
+                <td>ANTINUCLEAR ANTIBODIES</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>DENGU</td>
+                <td>DENGUE FEVER ANTI BODIES</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>HCVTOTAL</td>
+                <td>HEPATITIS C VIRUS total</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>TORCHM</td>
+                <td>TORCH IgM</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>ANA</td>
+                <td>ANTI NUCLEAR ANTIBODY</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>TB ALL</td>
+                <td>MYCOBACTERIUM TUBERCULOSIS ANTIBODIES REPORT BY ELISA</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>ARTP</td>
+                <td>ARTHRITIS PANEL</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>502</td>
+                <td>ANTI-CYSTICERCOSIS (Taenia solium)</td>
+                <td class="rate">750</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>507</td>
+                <td>ABS. TO MYCOBACTERIUM IgG</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>MYCOG</td>
+                <td>ANTIBODIES FOR MYCOBACTERIUM (1gG)</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>LKM</td>
+                <td>ANTI LKM</td>
+                <td class="rate">2000</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>AMH</td>
+                <td>ANTI MULLERIAN HORMONE</td>
+                <td class="rate">2000</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>LUPUS</td>
+                <td>Lupus Anticoagulant</td>
+                <td class="rate">1800</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>CARDIOIGG</td>
+                <td>Cardiolipin IgG Antibody</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>CARDIOIGM</td>
+                <td>Cardiolipin IgM Antibody</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>HCVIGM</td>
+                <td>ANTI HEPATITIS C VIRUS IGM</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>HAVIGG</td>
+                <td>ANTI HAV VIRUS IGG</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>CD4</td>
+                <td>CD4 Absolute Count</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>CD3</td>
+                <td>CD3/CD4/CD8</td>
+                <td class="rate">1600</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>ASA</td>
+                <td>ANTI SPERM ANTIBODY</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>HSVIGG</td>
+                <td>Herpes Simplex Virus 1&2 IGG</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>NS1</td>
+                <td>DENGUE NS1 Ag.</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>ALF</td>
+                <td>Allergy PROFILE</td>
+                <td class="rate">7500</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>CCP</td>
+                <td>CYCLIC CITRULLINATED PEPTIDES</td>
+                <td class="rate">1450</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>RA</td>
+                <td>R.A.FACTOR (QUALITATIVE)</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>TYPGM</td>
+                <td>Typhidot IgM</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>IGE</td>
+                <td>SERUM IgE</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>TTG</td>
+                <td>ANTI TRANSGLUTAMINASE IgA ANTIBODY</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>TBIGM</td>
+                <td>ANTI TUBERCULOSIS IGM</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>ANTICCP</td>
+                <td>ANTI CYCLIC CITRULLINATED PEPTIDES (ANTI CCP)</td>
+                <td class="rate">1450</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>PANCA</td>
+                <td>P-ANCA</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>HEVIGM</td>
+                <td>ANTI HEV IGM</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>TORCHG</td>
+                <td>TORCH IgG</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>CMV IGG</td>
+                <td>CYTOMEGALOVIRUS</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>TBIGG</td>
+                <td>ANTI TUBERCULOSIS IgG</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>TBIGA</td>
+                <td>ANTI TUBERCULOSIS IgA</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>IND</td>
+                <td>COOMB`S TEST (INDIRECT)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>AMO</td>
+                <td>Entamoeba histolytica Antibody (Amoebiasis)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>TPO</td>
+                <td>Anti TPO</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>ATG</td>
+                <td>ANTI THYROGLOBULIN</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>RUBGM</td>
+                <td>RUBELLA VIRUS IGM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>RUBIGG</td>
+                <td>Rubellavirus IgG Antibody</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>HBSAB</td>
+                <td>HEPATITIS B SURFACE ANTIBODIES</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>TB GOLD</td>
+                <td>TB Gold Quantiferon</td>
+                <td class="rate">1800</td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>RAQ</td>
+                <td>R.A.FACTOR (QUANTITATIVE)</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td>CRPQ</td>
+                <td>C-REACTIVE PROTEIN (QUANTITATIVE)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>THA</td>
+                <td>THYROID ANTIBODIES</td>
+                <td class="rate">1600</td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>ASMA</td>
+                <td>Anti Smooth Muscle Antibody</td>
+                <td class="rate">1600</td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>TPHA</td>
+                <td>TREPONEMA PALLIDUM HEMAGGLUTINATION</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>CHIK</td>
+                <td>CHIKUNGUNYA IGM</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>68</td>
+                <td>HCVA</td>
+                <td>HCV ANTIBODY</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>69</td>
+                <td>AMA</td>
+                <td>Anti Mitochondrial Antibody</td>
+                <td class="rate">1550</td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>C4</td>
+                <td>SERUM COMPLEMENT (C4)</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>TOXOIGG</td>
+                <td>TOXOPLASMA IGG</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>TOXOIGM</td>
+                <td>TOXOPLASMA IGM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>73</td>
+                <td>HAVIGM</td>
+                <td>ANTI HAV VIRUS IGM</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>74</td>
+                <td>ANTIDNA</td>
+                <td>ANTI DNA (DS)</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>APL-M</td>
+                <td>ANTIPHOSPHOLIPID ANTIBODY IgM</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>76</td>
+                <td>HBEAG</td>
+                <td>HEPATITIS B ENVELOPE AG</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td>HBEAB</td>
+                <td>HEPATITIS B ENVELOPE ANTIBODY (HbeAb)</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>78</td>
+                <td>CMVIGM</td>
+                <td>CYTO MEGALO VIRUS IGM</td>
+                <td class="rate">1100</td>
+            </tr>
+            <tr>
+                <td>79</td>
+                <td>CMVIGG</td>
+                <td>CMV IGG</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td>ECHINOIGG</td>
+                <td>ECHINOCOCCUS IGG (HYDATED SEROLOGY)</td>
+                <td class="rate">1250</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>ANCA</td>
+                <td>C-ANCA (PR3)</td>
+                <td class="rate">1600</td>
+            </tr>
+            <tr>
+                <td>82</td>
+                <td>SCL70</td>
+                <td>SCL-70 Antibody</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>83</td>
+                <td>HCVIGG</td>
+                <td>ANTI HEPATITIS C VIRUS IGG</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>84</td>
+                <td>ANTIRO</td>
+                <td>ANTI SS- A (Ro) Antibody</td>
+                <td class="rate">1350</td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>ANTILA</td>
+                <td>ANTI SS- B (La) ANTIBODY</td>
+                <td class="rate">1350</td>
+            </tr>
+            <tr>
+                <td>86</td>
+                <td>IGM</td>
+                <td>IGM (IMMUNOGLOBULIN M)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>87</td>
+                <td>IGG</td>
+                <td>IgG (IMMUNOGLOBULIN G)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>88</td>
+                <td>HPIGG</td>
+                <td>H. PYLORI IgG</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>89</td>
+                <td>HSV2G</td>
+                <td>HERPES SIMPLEX VIRUS 2 IgG</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>90</td>
+                <td>HAVIGM</td>
+                <td>ANTI HEPATITIS C VIRUS IGG</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>91</td>
+                <td>I.C.T</td>
+                <td>COOMB`S TEST (INDIRECT)</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>92</td>
+                <td>HIVELISA</td>
+                <td>HIV 1&2 ANTIBODY</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>93</td>
+                <td>ENA</td>
+                <td>ENA Blot Profile-Immuno Blot</td>
+                <td class="rate">7500</td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>CENTAB</td>
+                <td>CENTROMERE ANTIBODY</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>RNP</td>
+                <td>RNP-Sm (RIBONUCLEOPROTEIN-SMITH ANTIGEN)</td>
+                <td class="rate">2000</td>
+            </tr>
+            <tr>
+                <td>96</td>
+                <td>SM</td>
+                <td>SMITH ANTIBODY</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>97</td>
+                <td>P.VIRUSIGM</td>
+                <td>PARVOVIRUS B-19 ANTIBODY IGM</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>98</td>
+                <td>P.VIRUSIGG</td>
+                <td>PARVOVIRUS B-19 ANTIBODY IGG</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td>IGA</td>
+                <td>IMMUNOGLOBULIN IGA</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>APLG</td>
+                <td>ANTIPHOSPHOLIPID ANTIBODY IgG & IgM</td>
+                <td class="rate">1600</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>HEVIGG</td>
+                <td>ANTI HEV IgG</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>HBSAG C</td>
+                <td>HBSAG</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>HCVRNA</td>
+                <td>HCV RNA</td>
+                <td class="rate">7000</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>AA</td>
+                <td>AUSTRALIA ANTIGEN (HBsAG)</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>HBSA</td>
+                <td>HEPATITIS B SURFACE ANTIGEN</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>HBS</td>
+                <td>HEPATITIS B SURFACE ANTIGEN</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>ATH</td>
+                <td>ANTI THROMBIN III LEVEL</td>
+                <td class="rate">2800</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>B2-MGLOB</td>
+                <td>B2-MICROGLOBIN</td>
+                <td class="rate">1250</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>B2GPIGM</td>
+                <td>Anti Beta 2 Glycoprotein-I Antibody IgM</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>B2GPIGG</td>
+                <td>Anti Beta 2 Glycoprotein-I Antibody IgG</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>VARIIGG</td>
+                <td>VARICELLA IgG</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>HEVRNA</td>
+                <td>HEV RNA</td>
+                <td class="rate">3350</td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>SHBG</td>
+                <td>SEX HORMONE BINDING GLOBULIN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>AHA</td>
+                <td>Anti Histone Antibody</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>ANA-IFA</td>
+                <td>Anti Nuclear Antibody (ANA) - IFA</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>116</td>
+                <td>HSV1G</td>
+                <td>Herpes Simplex Virus 1 IGG</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>117</td>
+                <td>HSV2IGG</td>
+                <td>Herpes Simplex Virus 2 IGG</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>118</td>
+                <td>ENDOMYSIGA</td>
+                <td>ENDOMYSIAL ANTIBODY IgA</td>
+                <td class="rate">1800</td>
+            </tr>
+            <tr>
+                <td>119</td>
+                <td>APLM</td>
+                <td>ANTIPHOSPHOLIPID ANTIBODY IgM</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td>VARICEIGM</td>
+                <td>VARICELLA ZOSTER IGM</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>HCVGENOTYP</td>
+                <td>HCV RNA Genotyping</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>122</td>
+                <td>HLAPCR</td>
+                <td>HLA B-27 (PCR)</td>
+                <td class="rate">3000</td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>ASD</td>
+                <td>asd</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>124</td>
+                <td>HCV</td>
+                <td>Hepatitis C Virus (HCV)</td>
+                <td class="rate">400</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

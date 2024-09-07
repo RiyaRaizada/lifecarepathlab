@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Histopathology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table 1 -->
+            <tr>
+                <td>1</td>
+                <td>PRI</td>
+                <td>PATHOLOGICAL REPORT</td>
+                <td class="rate">280</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HIS</td>
+                <td>HISTO PATHOLOGY</td>
+                <td class="rate">500</td>
+            </tr>
+            
+            <!-- Table 2 -->
+            <tr>
+                <td>3</td>
+                <td>APPEN</td>
+                <td>APPENDIX HISTOPATHOLOGY</td>
+                <td class="rate">400</td>
+            </tr>
+            
+            <!-- Table 3 -->
+            <tr>
+                <td>4</td>
+                <td>APP</td>
+                <td>APPENDIX</td>
+                <td class="rate">0</td>
+            </tr>
+            
+            <!-- Table 4 -->
+            <tr>
+                <td>5</td>
+                <td>HP</td>
+                <td>HISTOPATHOLOGY REPORT</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>PB</td>
+                <td>HISTOPATHOLOGY REPORT</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>EC</td>
+                <td>HISTOPATHOLOGY REPORT</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>UTERUS</td>
+                <td>HISTOPATHOLOGY</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>BREAST</td>
+                <td>HISTOPATHOLOGY REPORT</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>BR</td>
+                <td>Left breast lump for H.P. Examination</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>BREAST H.P</td>
+                <td>BREAST LUMP FOR H.P. Examination</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>TISSU HIST</td>
+                <td>Tissue for histopathology</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>CYST HISTO</td>
+                <td>Cyst for histopathology</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>HISTO</td>
+                <td>HISTOPATHOLOGY</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>HYSTO</td>
+                <td>Buccal biopsy</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>HISTOB</td>
+                <td>BUCCAL BIOPSY</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>P011</td>
+                <td>PAPILLOMA</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>FUNGUS</td>
+                <td>FUNGUS EXAMINATION</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>IP</td>
+                <td>Iron Profile</td>
+                <td class="rate">1200</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

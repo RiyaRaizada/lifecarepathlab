@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Biochemistry Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>GTT</td>
+                <td>GLUCOSE TOLERANCE TEST</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>BU</td>
+                <td>BLOOD UREA</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>BUN</td>
+                <td>BLOOD UREA NITROGEN</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>UP</td>
+                <td>URINARY PROTEIN</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>GCT</td>
+                <td>GLUCOSE CHALLENGE TEST (GCT)</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>HB</td>
+                <td>HAEMOGLOBIN</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>714</td>
+                <td>GLYCATED HAEMOGLOBIN (HbA1C)</td>
+                <td class="rate">380</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>715</td>
+                <td>URINE FOR (VMA)</td>
+                <td class="rate">3700</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>TEST</td>
+                <td>TESTOSTERONE</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>720</td>
+                <td>LH, FSH, PROLACTIN, SERUM</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>BHCG</td>
+                <td>BETA HUMAN CHORIONIC GONADOTROPIN</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>CBC1</td>
+                <td>CBC PROFILE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>BSF</td>
+                <td>BLOOD SUGAR FASTING</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>TSH</td>
+                <td>THYROID STIMULATING HORMONE</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>BSP</td>
+                <td>BLOOD SUGAR P.P.</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>BSR</td>
+                <td>BLOOD SUGAR RANDOM</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>CCT</td>
+                <td>CREATININE CLEARANCE TEST (24 Hrs)</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>SC</td>
+                <td>Serum Cholinesterase</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>MA</td>
+                <td>MICRO ALBUMIN</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>SAE</td>
+                <td>SERUM APOLIPOPROTEIN ESTIMATION</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>BGA</td>
+                <td>ARTERIAL BLOOD GAS ANALYSIS</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>SHE</td>
+                <td>SERUM HOMOCYSTEINE ESTIMATION</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>SLE</td>
+                <td>SERUM LIPOPROTEIN (A) ESTIMATION</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>DHEAS</td>
+                <td>SERUM DHEA-SULPHATE</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>PSA</td>
+                <td>PSA TOTAL</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>CORTM</td>
+                <td>CORTISOL (MORNING)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>GT</td>
+                <td>HUMAN GROWTH HORMONE</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>v12</td>
+                <td>VITAMIN B12 AND FOLATE LEVEL</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>705</td>
+                <td>GLYCATED HAEMOGLOBIN (HbA1c)</td>
+                <td class="rate">380</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>E2</td>
+                <td>SERUM ESTRADIOL (E2)</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>SP4</td>
+                <td>SERUM PROGESTERONE (P4)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>ALB</td>
+                <td>SERUM ALBUMIN</td>
+                <td class="rate">80</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>O32U</td>
+                <td>24 HRS. URINE CREATININE</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>MALB</td>
+                <td>MICROALBUMINURIA</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>BS</td>
+                <td>BLOOD SUGAR</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>CKMB</td>
+                <td>C K - MB</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>AP</td>
+                <td>SERUM ACID PHOSPHATASE</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>LIP</td>
+                <td>LIPID PROFILE</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>ADA</td>
+                <td>ADENOSINE DEAMINASE ACTIVITY</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>LIP1</td>
+                <td>LIPID PROFILE</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>LFT</td>
+                <td>LIVER PROFILE LFT</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>REN</td>
+                <td>RENAL PROFILE</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>CP</td>
+                <td>CARDIAC PROFILE</td>
+                <td class="rate">3100</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>CC</td>
+                <td>CREATININE CLEARANCE</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>SI</td>
+                <td>SERUM IRON</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>IS</td>
+                <td>IRON SATURATION %</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>DF</td>
+                <td>DIABETIC PROFILE</td>
+                <td class="rate">460</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>MAG</td>
+                <td>MAGNESIUM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>24HR.PROTE</td>
+                <td>24 HR. URINARY PROTEIN</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>CR</td>
+                <td>SERUM CREATININE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>CH</td>
+                <td>SERUM CHOLESTEROL</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>HDL</td>
+                <td>HDL CHOLESTEROL</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>LDL</td>
+                <td>LDL-CHOLESTEROL</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>VLDL</td>
+                <td>VLDL-CHOLESTEROL</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>LDH</td>
+                <td>L D H</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>TG</td>
+                <td>SERUM TRIGLYCERIDES</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>TLP</td>
+                <td>TOTAL LIPIDS</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>SB</td>
+                <td>SERUM BILIRUBIN</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>SP</td>
+                <td>SERUM PROTEINS</td>
+                <td class="rate">160</td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>ALK</td>
+                <td>SERUM ALK. PHOSPHATASE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>GGT</td>
+                <td>Gamma Glutamyl Transferase (GGT)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>GPT</td>
+                <td>S.G.P.T.</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td>GOT</td>
+                <td>S.G.O.T.</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>CPK</td>
+                <td>C P K</td>
+                <td class="rate">330</td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>SPP</td>
+                <td>SERUM PHOSPHORUS</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>SCL</td>
+                <td>SERUM CALCIUM</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>SA</td>
+                <td>SERUM AMYLASE (ALFA)</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>68</td>
+                <td>UA</td>
+                <td>SERUM URIC ACID</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>69</td>
+                <td>NA</td>
+                <td>SERUM SODIUM (Na)</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>K</td>
+                <td>SERUM POTASSIUM (K)</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>CL</td>
+                <td>SERUM CHLORIDE (Cl)</td>
+                <td class="rate">210</td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>SBH</td>
+                <td>SERUM BICARBONATE (H CO3)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>73</td>
+                <td>SLI</td>
+                <td>SERUM LITHIUM</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>74</td>
+                <td>PC1</td>
+                <td>PLASMA CORTISOL</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>TESTO</td>
+                <td>SERUM TESTOSTERONE</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>76</td>
+                <td>717</td>
+                <td>THYROID PANEL BY CHEMILUMINESCENCE</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td>TOR</td>
+                <td>TORCH</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>78</td>
+                <td>TM</td>
+                <td>TUMOUR MARKER</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>79</td>
+                <td>TPF</td>
+                <td>THYROID PROFILE (Free)</td>
+                <td class="rate">750</td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td>TF</td>
+                <td>THYROID PROFILE</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>HBA1C</td>
+                <td>GLYCOSYLATED HAEMOGLOBIN A1c</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>82</td>
+                <td>SPL</td>
+                <td>S. PROLACTIN</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>83</td>
+                <td>SL</td>
+                <td>SERUM LIPASE</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>84</td>
+                <td>ULB</td>
+                <td>URINARY ALBUMIN</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>UU</td>
+                <td>URINE UREA</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>86</td>
+                <td>U.PHOS</td>
+                <td>24 Hrs URINARY PHOSPHORUS</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>87</td>
+                <td>UC1</td>
+                <td>24 HOURS URINARY CALCIUM</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>88</td>
+                <td>CRP</td>
+                <td>C-REACTIVE PROTEIN</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>89</td>
+                <td>SN</td>
+                <td>S.INSULIN FASTING</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>90</td>
+                <td>VITAMINC</td>
+                <td>SERUM VITAMIN C</td>
+                <td class="rate">6500</td>
+            </tr>
+            <tr>
+                <td>91</td>
+                <td>UC</td>
+                <td>24 Hrs.URINARY CALCIUM</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>92</td>
+                <td>GST</td>
+                <td>GASTRIN</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>93</td>
+                <td>ELP</td>
+                <td>LIPID PROFILE, EXTENDED</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>VIT.A</td>
+                <td>VIT.A</td>
+                <td class="rate">6000</td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>UMA</td>
+                <td>URINARY MICROALBUMIN</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>96</td>
+                <td>CA15.3</td>
+                <td>CA15.3</td>
+                <td class="rate">1250</td>
+            </tr>
+            <tr>
+                <td>97</td>
+                <td>CEA</td>
+                <td>CEA</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>98</td>
+                <td>FPSA</td>
+                <td>FPSA</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td>FSH</td>
+                <td>FOLLICLE STIMULATING HORMONE</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>PRO</td>
+                <td>Prolactin</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>LH</td>
+                <td>LEUTINISING HORMONE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>SHB</td>
+                <td>SEX HORMONE BINDING GLOBULIN</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>HBE</td>
+                <td>HB Electrophoresis-HPLC</td>
+                <td class="rate">790</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>SEI</td>
+                <td>Serum Lipase</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>SH</td>
+                <td>SEX HORMONE BINDING GLOBULIN</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>VIT.D</td>
+                <td>25-OH VITAMIN D TOTAL</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>KFT</td>
+                <td>RENAL PROFILE KFT</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>SPHN</td>
+                <td>SERUM PHENOBARBITONE</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>IC</td>
+                <td>IONIZE CALCIUM</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>IRON F</td>
+                <td>IRON PROFILE</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>SNP</td>
+                <td>SERUM INSULIN POST PARENIDAL</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>SNPP</td>
+                <td>SERUM INSULIN POST PARENIDAL</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>SNF</td>
+                <td>SERUM INSULIN FASTING</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>S.FOLIC</td>
+                <td>SERUM FOLIC ACID</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>HCL</td>
+                <td>HOMOCYSTEIN LEVEL</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>116</td>
+                <td>KETONE</td>
+                <td>URINE KETONE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>117</td>
+                <td>ACE</td>
+                <td>ACE (ANGIOTENSIN CONVERTING ENZYME)</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>118</td>
+                <td>KFT1</td>
+                <td>RENAL PROFILE</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>119</td>
+                <td>PHNT</td>
+                <td>PHENYTOIN</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td>VALP</td>
+                <td>VALPROIC ACID</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>CERU</td>
+                <td>Ceruloplasmin</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>122</td>
+                <td>F3</td>
+                <td>Tri-Iodothyronine Free (FT3)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>F4</td>
+                <td>Thyroxine - Free (FT4)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>124</td>
+                <td>FTESTO</td>
+                <td>FREE TESTOSTERONE</td>
+                <td class="rate">1800</td>
+            </tr>
+            <tr>
+                <td>125</td>
+                <td>ALDO</td>
+                <td>ALDOSTERONE SERUM</td>
+                <td class="rate">1700</td>
+            </tr>
+            <tr>
+                <td>126</td>
+                <td>ANC</td>
+                <td>ABSOLUTE NEUTROPHILS COUNT</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>127</td>
+                <td>I.PO4</td>
+                <td>INORGANIC PHOSPHORUS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>128</td>
+                <td>C-PEP</td>
+                <td>C-PEPTIDE</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>129</td>
+                <td>AMMONIA</td>
+                <td>AMMONIA</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>130</td>
+                <td>UPROTEIN</td>
+                <td>URINARY PROTEIN / CREATININE RATIO</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>131</td>
+                <td>UCRT</td>
+                <td>24HRS. URINARY CREATININE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>132</td>
+                <td>UPP</td>
+                <td>24 HRS URINE PHOSPHORUS</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>133</td>
+                <td>UOXA</td>
+                <td>24 HRS URINE OXALATES</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>134</td>
+                <td>17SP4</td>
+                <td>17 OH PROGESTRONE</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>135</td>
+                <td>DHEA</td>
+                <td>DEHYDROEPIANDROSTERONE</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>136</td>
+                <td>CARB</td>
+                <td>CARBAMAZEPINE/TEGRETOL</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>137</td>
+                <td>24CRT</td>
+                <td>24 HRS. URINARY CREATININE</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>138</td>
+                <td>24URIC</td>
+                <td>24 HRS. URINARY URIC ACID</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>139</td>
+                <td>24UALBUMIN</td>
+                <td>24 hrs. urinary albumin</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>140</td>
+                <td>24HRSNA</td>
+                <td>24 HRS. URINARY SODIUM (NA)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>141</td>
+                <td>24HRSK</td>
+                <td>24 HRS. URINARY POTASSIUM (K)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>142</td>
+                <td>Lead</td>
+                <td>SERUM LEAD</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>143</td>
+                <td>SLL</td>
+                <td>SERUM LACTATE LEVEL</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>144</td>
+                <td>Osmo</td>
+                <td>Osmolality-Urine</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>145</td>
+                <td>UF</td>
+                <td>URINE SUGAR FASTING</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>146</td>
+                <td>PP</td>
+                <td>URINE SUGAR PP</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>147</td>
+                <td>S.F</td>
+                <td>SEMEN FRUCTOSE LEVEL</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>148</td>
+                <td>PDW</td>
+                <td>PLATELET DISTRIBUTION WIDTH</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>149</td>
+                <td>5-ADHT</td>
+                <td>5-a-Dihydrotestosterone (5a DHT)</td>
+                <td class="rate">3500</td>
+            </tr>
+            <tr>
+                <td>150</td>
+                <td>ATH</td>
+                <td>ANTI THROMBIN III LEVEL</td>
+                <td class="rate">2800</td>
+            </tr>
+            <tr>
+                <td>151</td>
+                <td>URINA</td>
+                <td>URINE SODIUM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>152</td>
+                <td>URINENA</td>
+                <td>URINE SODIUM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>153</td>
+                <td>URINEK</td>
+                <td>URINE POTASSIUM</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>154</td>
+                <td>UUALB</td>
+                <td>Albumin-Creatinine Ratio</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>155</td>
+                <td>UUA</td>
+                <td>URINE URIC ACID (24HRS.)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>156</td>
+                <td>RUC</td>
+                <td>RANDOM URINE CALCIUM</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>157</td>
+                <td>PH</td>
+                <td>POWER OF HYDROGEN IONS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>158</td>
+                <td>SCA</td>
+                <td>SICKEL CELL TEST</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>159</td>
+                <td>UCR</td>
+                <td>SPOT URINE FOR CREATININE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>160</td>
+                <td>SERUMOSMO</td>
+                <td>Osmolality - Serum</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>161</td>
+                <td>24HRS.UREA</td>
+                <td>24HRS. URINE UREA</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>162</td>
+                <td>META</td>
+                <td>Metanephrine, Urine - 24 hours</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>163</td>
+                <td>CORTISOL</td>
+                <td>Cortisol Urine</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>164</td>
+                <td>URINEPRO</td>
+                <td>Spot Urine Protein</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>165</td>
+                <td>CORTE</td>
+                <td>Cortisol (Evening)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>166</td>
+                <td>UHB</td>
+                <td>Urine for Hemoglobin</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>167</td>
+                <td>TRA</td>
+                <td>Transferrin Saturation</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>168</td>
+                <td>CSFPRO</td>
+                <td>Cerebrospinal Fluid Microprotein (CSF)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>169</td>
+                <td>APLA</td>
+                <td>Antiphospholipid Antibody IgA</td>
+                <td class="rate">800</td>
+            </tr>
+            <tr>
+                <td>170</td>
+                <td>LEPTOIGM</td>
+                <td>Leptospira Antibody IgM</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>171</td>
+                <td>LEPTOIGG</td>
+                <td>Leptospira Antibody IgG</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>172</td>
+                <td>RE</td>
+                <td>Rotine</td>
+                <td class="rate">1050</td>
+            </tr>
+            <tr>
+                <td>173</td>
+                <td>IP</td>
+                <td>Iron Profile</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>174</td>
+                <td>IL6</td>
+                <td>Interleukin - 6 (IL-6)</td>
+                <td class="rate">3500</td>
+            </tr>
+            <tr>
+                <td>175</td>
+                <td>ANTP</td>
+                <td>Antenatal Profile</td>
+                <td class="rate">1650</td>
+            </tr>
+            <tr>
+                <td>176</td>
+                <td>TRO</td>
+                <td>TROPONIN T (TROP T)</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>177</td>
+                <td>PTH</td>
+                <td>PARATHYROID HORMONE (P.T.H.)</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>178</td>
+                <td>FLP</td>
+                <td>LEUTINISING HORMONE (LH)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>179</td>
+                <td>ACTH</td>
+                <td>PLASMA ACTH</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>180</td>
+                <td>VIT125</td>
+                <td>Vitamin D 1, 25-Dihydroxy</td>
+                <td class="rate">2500</td>
+            </tr>
+        </tbody>
+        
+            
+      
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

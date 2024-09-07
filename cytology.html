@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Cytology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>FERT</td>
+                <td>FERNING TEST</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>PCT</td>
+                <td>POST COITAL TEST</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>FNAC</td>
+                <td>FINE NEEDLE ASPIRATE</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>FNA</td>
+                <td>FINE NEEDLE ASPIRATION CYTOLOGY</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>XC</td>
+                <td>CHEST P.A. VIEW</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>XCL</td>
+                <td>X-RAY CHEST LATERAL VIEW</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>XCAP</td>
+                <td>X-RAY CHEST A.P. VIEW</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>XPL</td>
+                <td>X-RAY PL. ABDOMEN A.P. (K.U.B. REGION)</td>
+                <td class="rate">140</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>XKUB</td>
+                <td>X-RAY PL. ABDOMEN A.P. (K.U.B. REGION)</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>ABD</td>
+                <td>X-RAY ABDOMEN A.P. VIEW</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>XAE</td>
+                <td>X-RAY ABDOMEN ERECT AP</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>ECG</td>
+                <td>ELECTROCARDIOGRAM (E.C.G.)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>CPA</td>
+                <td>X-RAY CHEST P.A. VIEW</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>PCTT</td>
+                <td>POST COITAL TEST</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>I</td>
+                <td>INFERTILITY</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>086</td>
+                <td>PAPANICOLAOU STAINED SMEAR</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>FNAC1</td>
+                <td>FINE NEEDLE ASPIRATION inconclusive</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>PAP</td>
+                <td>PAP's Smear</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>FN</td>
+                <td>F.N.A.C : LEFT LUMB BREAST</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>FNAC CHIN</td>
+                <td>FNAC From chin Swelling</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>F.N.A.C.</td>
+                <td>FNAC From left cervical lymph node swelling</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>FNAC RT</td>
+                <td>FNAC Rt. Lumbar ribs region</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>KARYO</td>
+                <td>Karyotype</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>XXXX</td>
+                <td>Xxxxxxxxxxxxxxx</td>
+                <td class="rate">150</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

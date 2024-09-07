@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microbiology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Microbiology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>MP</td>
+                <td>MALARIA PARASITE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HBSAG</td>
+                <td>AUSTRALIA ANTIGEN (HBsAG)</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>HIV</td>
+                <td>H.I.V (1 & 2)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>TOX</td>
+                <td>TOXOPLASMA</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>NST</td>
+                <td>NASAL SECRETIONS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>AFB</td>
+                <td>SPUTUM- A.F.B.</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>GS</td>
+                <td>GRAM'S STAINING</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>076</td>
+                <td>THROAT SWAB - K.L.B.</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>TSC/S</td>
+                <td>THROAT SWAB - GRAM'S STAINING</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>PUS ST</td>
+                <td>PUS GRAM'S STAINING</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>PUSAFB</td>
+                <td>PUS - A.F.B</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>VHG</td>
+                <td>VAGINAL SMEAR (HANGING DROP)</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>CSF</td>
+                <td>CSF</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>FA</td>
+                <td>SPUTUM FOR FUNGAL</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>FAN</td>
+                <td>PUS FOR FUNGAL</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>203</td>
+                <td>CORNEAL SCRAPINGS GRAM'S STAIN</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>204</td>
+                <td>CORNEAL SCRAPINGS FOR FUNGUS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>205</td>
+                <td>CONJUCTIVAL SCRAPINGS FOR GS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>206</td>
+                <td>CONJUCTIVAL SCRAPINGS FOR FUNGUS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>FAFB</td>
+                <td>FLUID FOR AFB</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>227</td>
+                <td>Q.B.C. (For Malaria)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>FM</td>
+                <td>FLUID FOR MALIGNANT CELLS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>PAFB</td>
+                <td>PLEURAL FLUID AFB</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>BD</td>
+                <td>BLOOD CULTURE (BD BACTEC)</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>ATB</td>
+                <td>ACTIVE TB</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>FEVER1</td>
+                <td>FEVER PANEL II</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>RPD</td>
+                <td>RAPID MALARIA CARD TEST</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>MPR</td>
+                <td>RAPID MALARIA CARD TEST</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>MPI</td>
+                <td>RAPID MALARIA CARD TEST</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>STO</td>
+                <td>STOOL OCCULT BLOOD</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>STOO</td>
+                <td>STOOL OCCURED BLOOD</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>BLOODCS</td>
+                <td>BLOOD CULTURE & SENSITIVITY</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>CS</td>
+                <td>Culture & Sensitivity</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>GRAMSTAIN</td>
+                <td>GRAM STAIN</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>TYPIG</td>
+                <td>TYPHIDOT IGG</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>HBCABT</td>
+                <td>Hepatitis B Core Ab total</td>
+                <td class="rate">1100</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>HSVM</td>
+                <td>Herpes Simplex Virus 1 IgM</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>GRAM</td>
+                <td>URINE FOR GRAM STAIN</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>VDRL</td>
+                <td>VDRL (TUBE METHOD)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>E.H</td>
+                <td>AMOBAE OF ENTAMOEBA HISTOLYTICA</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>H.PYLORI IgM</td>
+                <td>H.PYLORI IgM</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>GBS</td>
+                <td>GALL BLADDER WITH STONE</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>LT</td>
+                <td>LIVER ABCESS TROPHOZOITES</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>ASO</td>
+                <td>ASO TITRE</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>STV</td>
+                <td>Vibrio cholerae</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>ROTA</td>
+                <td>Rota Virus Antigen</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>STOOL</td>
+                <td>Culture Stool (Aerobic)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>STOOLCNS1</td>
+                <td>CULTURE AND SENSITIVITY</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>FLUIDCNS1</td>
+                <td>*CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>THROATCNS1</td>
+                <td>*CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>HYDATID</td>
+                <td>HYDATID SEROLOGY</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>CNS</td>
+                <td>CNS</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>PSE</td>
+                <td>CNH</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>KP</td>
+                <td>CNS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>KO</td>
+                <td>CNS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>ASPP</td>
+                <td>CNS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>ECO</td>
+                <td>CNS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>PM</td>
+                <td>CNS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>FP</td>
+                <td>Fever Panel</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>TOCIG</td>
+                <td>TORCH IgM</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>TYPIG IGM</td>
+                <td>Typidot IgM</td>
+                <td class="rate">250</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

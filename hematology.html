@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Hematology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table 1 -->
+            <tr>
+                <td>1</td>
+                <td>DLC</td>
+                <td>DIFFERENTIAL LEUCOCYTE COUNT</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>AEC</td>
+                <td>ABSOLUTE EOSINOPHIL COUNT</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>RBC</td>
+                <td>TOTAL R.B.C. COUNT</td>
+                <td class="rate">80</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>PC</td>
+                <td>PLATELET COUNT</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>RCC</td>
+                <td>RETICULOCYTE COUNT</td>
+                <td class="rate">120</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>PCV</td>
+                <td>P.C.V./ Haematocrit Value</td>
+                <td class="rate">60</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>BT</td>
+                <td>BLEEDING TIME</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>CT</td>
+                <td>CLOTTING TIME</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>BG</td>
+                <td>BLOOD GROUP</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>PT</td>
+                <td>PROTHROMBIN TIME</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>LE</td>
+                <td>L.E.CELL PHENOMENON</td>
+                <td class="rate">200</td>
+            </tr>
+        
+            <!-- Table 2 -->
+            <tr>
+                <td>12</td>
+                <td>MF</td>
+                <td>MICRO FILARIA</td>
+                <td class="rate">600</td>
+            </tr>
+        
+            <!-- Table 3 -->
+            <tr>
+                <td>13</td>
+                <td>COAG</td>
+                <td>COAGULATION PROFILE</td>
+                <td class="rate">1900</td>
+            </tr>
+        
+            <!-- Table 4 -->
+            <tr>
+                <td>14</td>
+                <td>721</td>
+                <td>HAEMOGLOBIN STUDIES (HPCL)</td>
+                <td class="rate">790</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>HLAB27</td>
+                <td>HLA-B27, FLOW CYTOMETRY</td>
+                <td class="rate">2000</td>
+            </tr>
+        
+            <!-- Table 5 -->
+            <tr>
+                <td>16</td>
+                <td>CHAEM</td>
+                <td>COMPLETE HAEMOGRAM</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>TRBC</td>
+                <td>TOTAL R.B.C. COUNT</td>
+                <td class="rate">60</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>MCH</td>
+                <td>M C H</td>
+                <td class="rate">60</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>MCHC</td>
+                <td>M C H C</td>
+                <td class="rate">60</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>DLC1</td>
+                <td>DIFFERENTIAL LEUCOCYTE COUNT</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>WBC</td>
+                <td>WBC COUNT</td>
+                <td class="rate">60</td>
+            </tr>
+        
+            <!-- Table 6 -->
+            <tr>
+                <td>22</td>
+                <td>ESRG</td>
+                <td>E.S.R. (Westergren Method)</td>
+                <td class="rate">40</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>MCV</td>
+                <td>MCV</td>
+                <td class="rate">60</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>BP</td>
+                <td>BLEEDING PROFILE</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>HGMP</td>
+                <td>HB TLC DLC ESRW MP PC</td>
+                <td class="rate">400</td>
+            </tr>
+        
+            <!-- Table 7 -->
+            <tr>
+                <td>26</td>
+                <td>TIBC</td>
+                <td>T.I.B.C.</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>FHB</td>
+                <td>FOETAL HAEMOGLOBIN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>G6PD</td>
+                <td>G6PD</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>PTT</td>
+                <td>PARTIAL THROMBOPLASTIN TIME ACTIVATED</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>AP1</td>
+                <td>ANAEMIA PROFILE</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>ESRW</td>
+                <td>E.S.R (Wintrobe's Method)</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>CRT</td>
+                <td>CLOT RETRACTION TIME (CRT)</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>APTT</td>
+                <td>A.P.T.T.</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>HCT</td>
+                <td>HCT</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>TD</td>
+                <td>TLC/DLC</td>
+                <td class="rate">120</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>SUA</td>
+                <td>Serum uric acid</td>
+                <td class="rate">120</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>SPE</td>
+                <td>Serum Electrolyte</td>
+                <td class="rate">1500</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>B12</td>
+                <td>B12</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>TEC</td>
+                <td>total eosinophil count</td>
+                <td class="rate">120</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>TLC</td>
+                <td>TOTAL LEUCOCYTE COUNT</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>MSL</td>
+                <td>MALARIA CARD TEST</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>CBC</td>
+                <td>COMPLETE BLOOD COUNT (CBC)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>GNP</td>
+                <td>GENERAL BLOOD PICTURE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>SF</td>
+                <td>S. FERRITIN</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>FACTORV</td>
+                <td>FACTOR V LEIDEN MUTATION</td>
+                <td class="rate">5300</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>TROI</td>
+                <td>TROPONIN I (TROP I)</td>
+                <td class="rate">1800</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>DDIMER</td>
+                <td>D-DIMER</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>PROBNP</td>
+                <td>Pro - Beta Natriuretic Peptide (BNP)</td>
+                <td class="rate">3000</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>TRANSFERIN</td>
+                <td>TRANSFERRIN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>eGFR</td>
+                <td>eGFR (Estimated Glomerular Filtration Rate)</td>
+                <td class="rate">7500</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>WIDAL</td>
+                <td>WIDAL Test</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>MPW</td>
+                <td>Malaria Platelets Widal</td>
+                <td class="rate">260</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>HG</td>
+                <td>Hemogram</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>WD</td>
+                <td>Widal</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>SIC</td>
+                <td>Sickling</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>CB</td>
+                <td>Complete Blood Count</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>REE</td>
+                <td>Rotine</td>
+                <td class="rate">850</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>HGBP</td>
+                <td>General Blood Picture</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>MPC</td>
+                <td>MPC</td>
+                <td class="rate">150</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>

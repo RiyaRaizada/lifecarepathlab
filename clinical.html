@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytology Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+
+/* View Tests Button Styles */
+.view-tests-btn {
+    display: inline-block;
+    padding: 10px 20px; /* Padding for text */
+    font-size: 1em;
+    color: white;
+    background-color: #06c1c1;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    margin-top: 2px;
+    margin-left: 1370px; /* Your custom margin */
+    align-self: center;
+    
+    /* Creating the arrow effect for right direction */
+    clip-path: polygon(15% 0, 100% 0, 85% 50%, 100% 100%, 15% 100%, 0% 50%);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-tests-btn:hover {
+    background-color: #008080;
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.view-tests-btn:active {
+    background-color: #004d4d;
+    transform: translateY(1px); /* Slight press effect */
+}
+
+
+
+
+
+
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+              width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #008080;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #008080;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect */
+        tr:hover {
+            background-color: #e0f7fa;
+          
+    cursor: pointer;  /* This changes the cursor to a pointer (hand icon) */
+}
+        
+
+        /* Style for selected row */
+        tr.selected {
+            background-color: #80deea;
+        }
+
+        /* Sum display area */
+        #sum-display {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center; color:#008080;">Clinical Pathology Tests</h2>
+    <a href="index.html#services" class="view-tests-btn">Back</a>
+    <div id="sum-display">Selected Sum: ₹0</div>
+    <table id="test-table">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Test Code</th>
+                <th>Test Name</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>GBP1</td>
+                <td>GENERAL BLOOD PICTURE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>US UP</td>
+                <td>ULTRA SOUND UPPER ABDOMEN</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>USKUB</td>
+                <td>ULTRA SOUND KUB REGION</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>US MALE</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>MXD</td>
+                <td>MANTOUX TEST</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>PNS</td>
+                <td>X-RAY PNS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>CSFd</td>
+                <td>CEREBRO SPINAL FLUID</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>FE</td>
+                <td>FLUID EXAMINATION</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>UCS</td>
+                <td>RAPID CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>UAFB</td>
+                <td>URINE FOR A.F.B.</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>CULAFB</td>
+                <td>CULTURE FOR AFB</td>
+                <td class="rate">350</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>PF</td>
+                <td>PLEURAL FLUID</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>MPE</td>
+                <td>MALARIA PARASITE</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>PFM</td>
+                <td>MALIGNANT CELLS</td>
+                <td class="rate">250</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>BLD</td>
+                <td>BLEEDING PROFILE</td>
+                <td class="rate">480</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>MPQ</td>
+                <td>MALARIA PARASITE (Q.B.C.)</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>PS</td>
+                <td>GENERAL BLOOD PICTURE</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>BJA</td>
+                <td>URINE FOR BENCE JONES PROTEIN</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>AS</td>
+                <td>ASCITIC FLUID</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>WABD</td>
+                <td>WHOLE ABDOMEN</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>USAN</td>
+                <td>ULTRA SOUND ANTENATAL STUDY</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>USL</td>
+                <td>ULTRA SOUND LOWER ABDOMEN</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>PN</td>
+                <td>PREGNANCY TEST</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>SEM</td>
+                <td>SEMEN ANALYSIS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>MX</td>
+                <td>MANTOUX TEST</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>BJA</td>
+                <td>URINE FOR BENCE JONES PROTEIN</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>UBPG</td>
+                <td>URINE FOR BILE SALT & PIGMENT</td>
+                <td class="rate">120</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>BONEP</td>
+                <td>BONE PROFILE</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>ftp</td>
+                <td>FAILURE TO THRIVE PANEL</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>NJP</td>
+                <td>NEONATAL JAUNDICE PROFILE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>UE</td>
+                <td>URINE EXAMINATION REPORT</td>
+                <td class="rate">50</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>ST</td>
+                <td>STOOL EXAMINATION REPORT</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>SYF</td>
+                <td>SYNOVIAL FLUID EXAMINATION</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>PFE</td>
+                <td>PLEURAL FLUID EXAMINATION</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>ACT</td>
+                <td>ASCITIC FLUID EXAMINATION</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>SPF</td>
+                <td>CEREBRO-SPINAL FLUID EXAMINATION</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>USS</td>
+                <td>CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>NP</td>
+                <td>X-RAY NASOPHARYNX LATERAL VIEW</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>OAP</td>
+                <td>X-RAY ORBIT AP</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>MT</td>
+                <td>X-RAY MASTOID LAT.OBLIQUE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>FAP</td>
+                <td>X-RAY FACE AP VIEW</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>CSA</td>
+                <td>X-RAY CERVICAL SPINE AP</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>ERR</td>
+                <td>PL.ABDOMEN AP (ERRECT)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>44</td>
+                <td>USFL</td>
+                <td>ULTRA SOUND LOWER ABDOMEN</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>USN</td>
+                <td>ULTRA SOUND ANTENATAL</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>46</td>
+                <td>USFEMAE</td>
+                <td>ULTRA SOUND WHOLE FEMALE</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>47</td>
+                <td>GBSTONE</td>
+                <td>GALL BLADDER WITH STONE</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>48</td>
+                <td>USLA</td>
+                <td>ULTRASOUND LOWER ABDOMEN</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>49</td>
+                <td>LUAT</td>
+                <td>HYSTERECTOMY</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>50</td>
+                <td>CPA1</td>
+                <td>X-RAY CHEST P.A (VIEW)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>51</td>
+                <td>USEA</td>
+                <td>ULTRASOUND EARLY PREGNANCY</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>52</td>
+                <td>F</td>
+                <td>FINE NEEDLE ASPIRATE</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>53</td>
+                <td>USGB</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>54</td>
+                <td>USU</td>
+                <td>U/S URETRY CALCULAS</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>55</td>
+                <td>USHF</td>
+                <td>ULTRA SOUND ANTENATAL STUDY</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>56</td>
+                <td>NECK</td>
+                <td>SOFT TISSUE NECK Let</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>57</td>
+                <td>USWMALE</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>58</td>
+                <td>USPM</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>59</td>
+                <td>USB</td>
+                <td>ULTRA SOUND KUB REGION</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>60</td>
+                <td>USUL</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>61</td>
+                <td>USUC</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>62</td>
+                <td>USM</td>
+                <td>ULTRA SOUND NATENATAL</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>63</td>
+                <td>USJ</td>
+                <td>ULTRA SOUND LOWER ABDOMEN</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>64</td>
+                <td>USFH</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>65</td>
+                <td>USBM</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>USF</td>
+                <td>ULTRA SOUND KUB REGION</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>67</td>
+                <td>USSC</td>
+                <td>ULTRASOUND SCROTUM</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>68</td>
+                <td>USGB2</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>69</td>
+                <td>USRPOCLOC</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>USMNOP</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>71</td>
+                <td>USD</td>
+                <td>ULTRA SOUND WHOLE ABDOMEN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>72</td>
+                <td>USDF</td>
+                <td>ULTRA SOUND LOWER ABDOMEN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>73</td>
+                <td>USBPH</td>
+                <td>US PROSTATIC HYPERTROPHY</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>74</td>
+                <td>USOC/PC</td>
+                <td>US RT.TUBO-OVARIAN CYST & RPOC</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>75</td>
+                <td>USTWINE</td>
+                <td>US TWINS PREGNANCY</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>76</td>
+                <td>USFIBROID</td>
+                <td>US FIBROID -UTERINE MASS</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>77</td>
+                <td>USRPOC 1</td>
+                <td>US RPOC 1</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>78</td>
+                <td>USKID</td>
+                <td>US BOTH KIDNEY STONE</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>79</td>
+                <td>USPCOD</td>
+                <td>ULTRASOUND PCOD</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td>US RC</td>
+                <td>US TWO RT.RENAL CALCULUS</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>USTOC</td>
+                <td>RT.TUBO-OVARION CYSTIC MASS</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>82</td>
+                <td>USMOL</td>
+                <td>ULTRASOUND MOLAR PREGNANCY</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>83</td>
+                <td>USUC2</td>
+                <td>US HYDRO URETERIC CALCULUS</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>84</td>
+                <td>USUC1</td>
+                <td>US HYDRONEPH-HYDROURETER UC</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>85</td>
+                <td>USKIDNEY</td>
+                <td>US MEDICAL RENAL DISEASE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>86</td>
+                <td>USKID FAIL</td>
+                <td>US CHRONIC MEDICAL RENAL DISEASE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>87</td>
+                <td>USKID</td>
+                <td>US RT.KIDNEY CALCULUS</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>88</td>
+                <td>USBABY</td>
+                <td>US BABY ULTRASOUND</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>89</td>
+                <td>USGBCHOL</td>
+                <td>USGB CHOLECYSTITIS</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>90</td>
+                <td>US PLU</td>
+                <td>US PLEURAL EFFUSION</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>91</td>
+                <td>USSTONE</td>
+                <td>US B/L RENAL CALCULUS</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>92</td>
+                <td>USB/LTOC</td>
+                <td>US B/L TUBO-OVARION CYSTIC MASS</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>93</td>
+                <td>USFLO1</td>
+                <td>US LOWER ABDOMEN NORMAL</td>
+                <td class="rate">600</td>
+            </tr>
+            <tr>
+                <td>94</td>
+                <td>DFL</td>
+                <td>US IUD</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>95</td>
+                <td>USAPF</td>
+                <td>USAPPENDIX</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>96</td>
+                <td>USAPM</td>
+                <td>USAPPENDIX MALE</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>97</td>
+                <td>USIUD</td>
+                <td>USDEAD FETUS</td>
+                <td class="rate">650</td>
+            </tr>
+            <tr>
+                <td>98</td>
+                <td>XLS</td>
+                <td>X-RAY SACRUM A.P VIEW</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>99</td>
+                <td>BLOODCS</td>
+                <td>BLOOD CULTURE & SENSITIVITY</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td>UPT</td>
+                <td>URINE PREGNANCY TEST (RAPID)</td>
+                <td class="rate">100</td>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>CDA</td>
+                <td>COLO DOPPLER- ABNORMAL AROTA</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>CDT</td>
+                <td>COLOR DOPPLER-TESTIS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>ANC1</td>
+                <td>Antenatal Screen 1</td>
+                <td class="rate">450</td>
+            </tr>
+            <tr>
+                <td>104</td>
+                <td>ANC2</td>
+                <td>Antenatal Screen 2</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>105</td>
+                <td>GT1</td>
+                <td>General Health Care</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>106</td>
+                <td>USGWAM</td>
+                <td>USG Whole Abdomen (M)</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>107</td>
+                <td>USGWAF</td>
+                <td>USG LOWER ABDOMEN [F]</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>108</td>
+                <td>USGUA</td>
+                <td>USG Upper Abdomen</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>GALLB.</td>
+                <td>GALL BLADDER</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>110</td>
+                <td>HPS</td>
+                <td>PILONIDAL SINUS</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>PILONIDAL</td>
+                <td>PILONIDAL SINUS</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>112</td>
+                <td>BLOODC.</td>
+                <td>BLOOD CULTURE</td>
+                <td class="rate">700</td>
+            </tr>
+            <tr>
+                <td>113</td>
+                <td>STONEANA</td>
+                <td>STONE ANALYSIS</td>
+                <td class="rate">1200</td>
+            </tr>
+            <tr>
+                <td>114</td>
+                <td>PROTELC</td>
+                <td>Protein Electrophoresis (Serum)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>115</td>
+                <td>AFBS</td>
+                <td>AFB STAIN</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>116</td>
+                <td>E.AFB</td>
+                <td>ENDOMETRIAL BIOPSY FOR AFB STAIN</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>117</td>
+                <td>BREASTCAN.</td>
+                <td>BREAST CANCER PROGNOSIS PANEL</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>118</td>
+                <td>STCNS1</td>
+                <td>CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>119</td>
+                <td>HD</td>
+                <td>STOOL FOR HANGING DROP</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td>SCNS1</td>
+                <td>*CULTURE AND SENSITIVITY REPORT</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>121</td>
+                <td>PCF</td>
+                <td>Pericardial effusion</td>
+                <td class="rate">550</td>
+            </tr>
+            <tr>
+                <td>122</td>
+                <td>PCM</td>
+                <td>PERICARDIAL FLUID FOR MALIGNANT CELLS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>123</td>
+                <td>PCFB</td>
+                <td>PERICARDIAL FLUID AFB</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>124</td>
+                <td>UALBUMIN</td>
+                <td>SPOT URINE ALBUMIN</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>125</td>
+                <td>STOOLC/S</td>
+                <td>stool c/s</td>
+                <td class="rate">150</td>
+            </tr>
+            <tr>
+                <td>126</td>
+                <td>CNSPYO</td>
+                <td>PYOGENIC CULTURE & SENSITIVITY</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>127</td>
+                <td>SEMENCNS1</td>
+                <td>Semen Culture & Sensitivity</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>128</td>
+                <td>CNS1PUS</td>
+                <td>Culture Pus (Aerobic)</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>129</td>
+                <td>PROC</td>
+                <td>PROTEIN C</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>130</td>
+                <td>PROS</td>
+                <td>PROTEIN S</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>131</td>
+                <td>PUSCNS1</td>
+                <td>Pus Culture & Sensitivity</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>132</td>
+                <td>MCELLS</td>
+                <td>MALIGNANT CELLS</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>133</td>
+                <td>SPUTUMCNS1</td>
+                <td>CULTURE AND SENSITIVITY</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>134</td>
+                <td>UCYT</td>
+                <td>Urine Cytology</td>
+                <td class="rate">500</td>
+            </tr>
+            <tr>
+                <td>135</td>
+                <td>UM</td>
+                <td>URINE FOR MALIGNANT CELLS</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>136</td>
+                <td>UMALIGNANT</td>
+                <td>URINE MALIGNANT CELL</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>137</td>
+                <td>TBM</td>
+                <td>TB (PCR)/MENSURATION</td>
+                <td class="rate">2500</td>
+            </tr>
+            <tr>
+                <td>138</td>
+                <td>FUNGUS</td>
+                <td>FUNGUS EXAMINATION</td>
+                <td class="rate">200</td>
+            </tr>
+            <tr>
+                <td>139</td>
+                <td>CYSTO</td>
+                <td>CYSTOCYTOSIS</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>140</td>
+                <td>QUAR</td>
+                <td>QUARD TEST</td>
+                <td class="rate">4000</td>
+            </tr>
+            <tr>
+                <td>141</td>
+                <td>IGF</td>
+                <td>Insulin-Like Growth Factor-I (IGF-I)</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>142</td>
+                <td>FBN</td>
+                <td>FIBRINOGEN</td>
+                <td class="rate">900</td>
+            </tr>
+            <tr>
+                <td>143</td>
+                <td>BNP</td>
+                <td>ANTI PRO BNP</td>
+                <td class="rate">1650</td>
+            </tr>
+            <tr>
+                <td>144</td>
+                <td>SAAG</td>
+                <td>Serum Ascitic Albumin Gradient (SAAG)</td>
+                <td class="rate">1000</td>
+            </tr>
+            <tr>
+                <td>145</td>
+                <td>ALD</td>
+                <td>Aldehyde Test for Kala Azar</td>
+                <td class="rate">300</td>
+            </tr>
+            <tr>
+                <td>146</td>
+                <td>CNS1</td>
+                <td>Culture & Sensitivity</td>
+                <td class="rate">400</td>
+            </tr>
+            <tr>
+                <td>147</td>
+                <td>SPUTUMR/M</td>
+                <td>Sputum Routine</td>
+                <td class="rate">0</td>
+            </tr>
+            <tr>
+                <td>148</td>
+                <td>BSPY</td>
+                <td>Pap Smear – Conventional</td>
+                <td class="rate">2000</td>
+            </tr>
+            <tr>
+                <td>149</td>
+                <td>ANCP</td>
+                <td>ANC Panel</td>
+                <td class="rate">1950</td>
+            </tr>
+        </tbody>
+        
+    </table>
+
+  
+
+    <script>
+        const tableRows = document.querySelectorAll('#test-table tbody tr');
+        let sumDisplay = document.getElementById('sum-display');
+        let selectedSum = 0;
+
+        // Add click event listener to each table row
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const rate = parseInt(row.querySelector('.rate').innerText);
+
+                // Toggle selection class
+                if (row.classList.contains('selected')) {
+                    row.classList.remove('selected');
+                    selectedSum -= rate;  // Subtract rate if deselected
+                } else {
+                    row.classList.add('selected');
+                    selectedSum += rate;  // Add rate if selected
+                }
+
+                // Update sum display
+                sumDisplay.innerText = `Selected Sum: ₹${selectedSum}`;
+            });
+        });
+    </script>
+</body>
+</html>
